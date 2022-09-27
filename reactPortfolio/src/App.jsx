@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import Home from "./Home";
 import Services from "./Services";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./GlobalStyle";
 
 const App = () => {
   const theme = {
@@ -33,6 +34,7 @@ const App = () => {
     <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
+        <GlobalStyle/>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
