@@ -1,8 +1,10 @@
-// const API = "https://thapareactapi.up.railway.app";
 import React, { useContext, useReducer } from 'react'
 import { reducer } from './Reducer';
 
 const AppContext = React.createContext();
+
+const API = "https://thapareactapi.up.railway.app";
+
 
 const initialState = {
     name: "",
@@ -32,6 +34,22 @@ const AppProvider = ({ children }) => {
             },
         })
     }
+    // getting all api data
+    const getServices = async () =>{
+
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+      getServices(API)
+    
+    }, [])
+    
 
     return <AppContext.Provider value={{ ...state, updateHomePage, updateAboutPage }}>{children}</AppContext.Provider>
 }
