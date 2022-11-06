@@ -1,8 +1,12 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Contact = () => {
+  const Wrapper = styled.section``;
   return (
-    <div>Contact</div>
+    <Wrapper className='section'>
+
+    </Wrapper>
   )
 }
 

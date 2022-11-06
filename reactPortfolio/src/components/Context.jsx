@@ -1,9 +1,10 @@
-import React, { useContext, useReducer } from 'react'
+import React, { useContext, useReducer ,useEffect} from 'react'
 import { reducer } from './Reducer';
+// import APIData from './APIData';
 
 const AppContext = React.createContext();
 
-const API = "https://thapareactapi.up.railway.app";
+// const API = "https://thapareactapi.up.railway.app";
 
 
 const initialState = {
@@ -35,20 +36,22 @@ const AppProvider = ({ children }) => {
         })
     }
     // getting all api data
-    const getServices = async () =>{
+    // const getServices = async (url) =>{
 
-        try {
-            const res = await fetch(url)
-            const data = await res.json()
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    //     try {
+    //         const res = await fetch(url)
+    //         const data = await res.json()
+    //         console.log(data);
+    //     } catch (error) {
 
-    useEffect(() => {
-      getServices(API)
+    //         console.log(error);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //   getServices(APIData)
     
-    }, [])
+    // }, [])
     
 
     return <AppContext.Provider value={{ ...state, updateHomePage, updateAboutPage }}>{children}</AppContext.Provider>
